@@ -1,0 +1,9 @@
+DROP TABLE IF EXISTS words;
+
+CREATE TABLE words (
+	id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	word VARCHAR(512) NOT NULL,
+	synonyms TEXT[],
+	antonyms TEXT[],
+	definition TEXT[]
+);
