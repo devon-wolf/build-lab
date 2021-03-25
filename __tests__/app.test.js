@@ -10,7 +10,7 @@ describe('build-lab routes', () => {
 
   it('adds a word to the database', async () => {
     const response = await request(app)
-      .post('/words')
+      .post('/api/v1/words')
       .send({ word: 'gregarious'});
 
     expect(response.body).toEqual({
