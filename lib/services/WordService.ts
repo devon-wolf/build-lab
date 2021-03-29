@@ -1,11 +1,11 @@
+import { ThesaurusData, WordRow } from '../models/types';
+import { getThesaurusData } from '../utils/thesaurus'
 const Word = require('../models/Word');
-const { getThesaurusData } = require('../utils/thesaurus');
-
 module.exports = class WordService {
-	static async save({ word }) {
-		const newWord = await getThesaurusData(word);
+	static async save({ word } : { word: string }) {
+		const newWord : ThesaurusData = await getThesaurusData(word);
 
-		const wordEntry = await Word.insert(newWord);
+		const wordEntry : WordRow = await Word.insert(newWord);
 
 		return wordEntry;
 	}

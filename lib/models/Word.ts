@@ -1,21 +1,23 @@
+import { ThesaurusData, WordRow } from './types'
 const pool = require('../utils/pool');
-
 module.exports = class Word {
 	id : string;
 	word : string;
-	synonyms : Array<string>;
-	antonyms : Array<string>;
-	definition : Array<string>;
+	synonyms : string[];
+	antonyms : string[];
+	definition : string[];
 
-	constructor(row : object) {
-		this.id = row['id'];
-		this.word = row['word'];
-		this.synonyms = row['synonyms'];
-		this.antonyms = row['antonyms'];
-		this.definition = row['definition'];
+	constructor(row : WordRow) {
+		const { id, word, synonyms, antonyms, definition } = row;
+
+		this.id = id;
+		this.word = word;
+		this.synonyms = synonyms;
+		this.antonyms = antonyms;
+		this.definition = definition;
 	}
 
-	static async insert({ word, synonyms, antonyms, definition }) {
+	static async insert({ word, synonyms, antonyms, definition } : ThesaurusData) {
 		const { rows } = await pool.query(
 			`INSERT INTO words (word, synonyms, antonyms, definition)
 			VALUES ($1, $2, $3, $4)
