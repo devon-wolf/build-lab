@@ -4,7 +4,7 @@ const request = require('superagent');
 
 const apiURL : string = 'https://www.dictionaryapi.com/api/v3/references';
 
-const shapeThesaurusData = async (word : string, data : ApiBody) => {
+const shapeThesaurusData = (word : string, data : ApiBody) => {
 	const [synonyms] = data.meta.syns;
 	const [antonyms] = data.meta.ants;
 	const definition = data.shortdef;
