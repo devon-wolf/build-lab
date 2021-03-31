@@ -20,6 +20,8 @@ describe('build-lab routes', () => {
   });
 
   beforeEach(async () => {
+    thesaurus.getThesaurusData = mockThesaurusCall;
+
     await request(app)
       .post('/api/v1/words')
       .send({ word: 'gregarious'});
@@ -38,5 +40,17 @@ describe('build-lab routes', () => {
         antonyms: expect.any(Array),
         definition: expect.any(Array)
     });
+  });
+
+  it('gets all words from the database', async () => {
+    const response = await request(app)
+      .get('/');
+
+    expect(response.body).toEqual([{
+      word: 'gregarious',
+      synonyms: ['these', 'are', 'synonyms'],
+      antonyms: ['these', 'are', 'antonyms'],
+      definition: ['this is a definition']
+}]);
   });
 });
