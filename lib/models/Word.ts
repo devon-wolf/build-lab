@@ -33,4 +33,10 @@ module.exports = class Word {
 		return new Word(rows[0]);
 	}
 
+	static async select() {
+		const { rows } = await pool.query('SELECT * FROM words');
+
+		return rows;
+	}
+
 }

@@ -9,4 +9,9 @@ module.exports = class WordService {
 
 		return wordEntry;
 	}
+
+	static async getAll() {
+		const words = await Word.select();
+		return words;
+	}
 }
