@@ -19,6 +19,12 @@ describe('build-lab routes', () => {
     return setup(pool);
   });
 
+  beforeEach(async () => {
+    await request(app)
+      .post('/api/v1/words')
+      .send({ word: 'gregarious'});
+  })
+
   it('adds a word to the database', async () => {
     thesaurus.getThesaurusData = mockThesaurusCall;
     const response = await request(app)
@@ -26,7 +32,7 @@ describe('build-lab routes', () => {
       .send({ word: 'gregarious'});
 
     expect(response.body).toEqual({
-        id: '1',
+        id: '2',
         word: 'gregarious',
         synonyms: expect.any(Array),
         antonyms: expect.any(Array),
