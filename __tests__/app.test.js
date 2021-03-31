@@ -44,9 +44,10 @@ describe('build-lab routes', () => {
 
   it('gets all words from the database', async () => {
     const response = await request(app)
-      .get('/');
+      .get('/api/v1/words');
 
     expect(response.body).toEqual([{
+      id: '1',
       word: 'gregarious',
       synonyms: ['these', 'are', 'synonyms'],
       antonyms: ['these', 'are', 'antonyms'],
