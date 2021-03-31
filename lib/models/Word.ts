@@ -39,4 +39,9 @@ module.exports = class Word {
 		return rows;
 	}
 
+	static async selectByID(id : string) {
+		const { rows } = await pool.query('SELECT * FROM words WHERE id=$1', [id]);
+
+		return new Word(rows[0]);
+	}
 }

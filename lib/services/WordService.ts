@@ -14,4 +14,9 @@ module.exports = class WordService {
 		const words = await Word.select();
 		return words;
 	}
+
+	static async getByID(id : string) {
+		const word = await Word.selectByID(id);
+		return word;
+	}
 }
