@@ -54,4 +54,17 @@ describe('build-lab routes', () => {
       definition: ['this is a definition']
 }]);
   });
+
+  it('gets a word by its ID', async () => {
+    const response = await request(app)
+      .get('/api/v1/words/1');
+
+    expect(response.body).toEqual({
+      id: '1',
+      word: 'gregarious',
+      synonyms: ['these', 'are', 'synonyms'],
+      antonyms: ['these', 'are', 'antonyms'],
+      definition: ['this is a definition']
+});
+  })
 });
