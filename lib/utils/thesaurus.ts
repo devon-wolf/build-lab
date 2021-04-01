@@ -8,7 +8,7 @@ const shapeThesaurusData = (word : string, data : ApiBody) => {
 	const [synonyms] = data.meta.syns;
 	const [antonyms] = data.meta.ants;
 	const definition = data.shortdef;
-
+	
 	return {
 		word,
 		synonyms,

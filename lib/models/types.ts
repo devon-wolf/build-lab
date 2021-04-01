@@ -16,3 +16,5 @@ export type ApiBody = {
 	},
 	shortdef: string[]
 }
+
+export type WordProp = 'word' | 'synonyms' | 'antonyms' | 'definition';

@@ -2,7 +2,6 @@ const pool = require('../lib/utils/pool');
 const setup = require('../data/setup');
 const request = require('supertest');
 const app = require('../lib/app');
-
 const thesaurus = require('../lib/utils/thesaurus');
 
 jest.mock('../lib/utils/thesaurus.ts');
@@ -100,3 +99,68 @@ describe('build-lab routes', () => {
   });
 
 });
+
+describe.skip('services', () => {
+  it('sorts the database items if given sorting parameters', async () => {
+    const mockGetResponse = [
+      {
+          "id": "3",
+          "word": "celestial",
+          "synonyms": [
+              "elysian",
+              "empyreal",
+              "empyrean",
+              "ethereal",
+              "heavenly",
+              "supernal"
+          ],
+          "antonyms": [
+              "chthonic",
+              "hellish",
+              "infernal",
+              "plutonian",
+              "sulfurous",
+              "Tartarean"
+          ],
+          "definition": [
+              "of, relating to, or suggesting heaven"
+          ]
+      },
+      {
+          "id": "4",
+          "word": "hurry",
+          "synonyms": [
+              "haste",
+              "hastiness",
+              "hustle",
+              "precipitation",
+              "precipitousness",
+              "rush"
+          ],
+          "antonyms": [
+              "deliberateness",
+              "deliberation"
+          ],
+          "definition": [
+              "excited and often showy or disorderly speed",
+              "a high rate of movement or performance",
+              "a state of noisy, confused activity"
+          ]
+      },
+      {
+          "id": "6",
+          "word": "disguise",
+          "synonyms": [
+              "camouflage",
+              "costume",
+              "guise"
+          ],
+          "antonyms": null,
+          "definition": [
+              "clothing put on to hide one's true identity or imitate someone or something else",
+              "a display of emotion or behavior that is insincere or intended to deceive"
+          ]
+      }
+    ];
+  })
+})
