@@ -66,5 +66,33 @@ describe('build-lab routes', () => {
       antonyms: ['these', 'are', 'antonyms'],
       definition: ['this is a definition']
 });
-  })
+  });
+
+  it('updates a word in the database', async () => {
+    const response = await request(app)
+      .put('/api/v1/words/1')
+      .send({ definition: ['this is a better definition']});
+
+    expect(response.body).toEqual({
+      id: '1',
+      word: 'gregarious',
+      synonyms: ['these', 'are', 'synonyms'],
+      antonyms: ['these', 'are', 'antonyms'],
+      definition: ['this is a better definition']
+  });
+  });
+
+  it('deletes a word in the database', async () => {
+    const response = await request(app)
+      .delete('/api/v1/words/1');
+    
+    expect(response.body).toEqual({
+      id: '1',
+      word: 'gregarious',
+      synonyms: ['these', 'are', 'synonyms'],
+      antonyms: ['these', 'are', 'antonyms'],
+      definition: ['this is a definition']
+  });
+  });
+
 });
