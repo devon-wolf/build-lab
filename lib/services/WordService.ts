@@ -20,15 +20,8 @@ module.exports = class WordService {
 		return word;
 	}
 
-	static async update(id : string, word : { word?: string, synonyms?: string[], antonyms?: string[], definition?: string[] }) {
-		const { originalWord, originalSyns, originalAnts, originalDef } = await Word.selectByID(id);
-		const mergedWord = {
-			word: word.word || originalWord,
-			synonyms: word.synonyms || originalSyns,
-			antonyms: word.antonyms || originalAnts,
-			definition: word.definition || originalDef
-		}
-		const updatedWord = await Word.update({ id, ...mergedWord });
+	static async update(id : string, word : ThesaurusData) {
+		const updatedWord = await Word.update({ id, ...word });
 		return updatedWord;
 	}
 

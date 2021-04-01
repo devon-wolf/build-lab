@@ -71,7 +71,11 @@ describe('build-lab routes', () => {
   it('updates a word in the database', async () => {
     const response = await request(app)
       .put('/api/v1/words/1')
-      .send({ definition: ['this is a better definition']});
+      .send({ 
+        word: 'gregarious',
+        synonyms: ['these', 'are', 'synonyms'],
+        antonyms: ['these', 'are', 'antonyms'],
+        definition: ['this is a better definition']});
 
     expect(response.body).toEqual({
       id: '1',
