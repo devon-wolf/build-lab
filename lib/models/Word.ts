@@ -44,4 +44,35 @@ module.exports = class Word {
 
 		return new Word(rows[0]);
 	}
+
+	static async update({ id, word, synonyms, antonyms, definition } : WordRow) {
+		const { rows } = await pool.query(
+			`UPDATE words
+			SET word = $1,
+			synonyms = $2,
+			antonyms = $3,
+			definition = $4
+			WHERE id = $5
+			RETURNING *`,
+			[
+				word,
+				synonyms,
+				antonyms,
+				definition,
+				id
+			]
+		);
+
+		return new Word(rows[0]);
+	}
+
+	static async delete(id : string) {
+		const { rows } = await pool.query(
+			`DELETE FROM words WHERE id=$1
+			RETURNING *`,
+			[id]
+		);
+
+		return new Word(rows[0]);
+	}
 }
