@@ -17,8 +17,8 @@ searchForm.addEventListener('submit', e => {
 	antPar.textContent = 'antonyms';
 	defPar.textContent = 'definition';
 	searchInput.value = '';
-})
+});
 
 saveButton.addEventListener('click', () => {
 	console.log('.... you know nothing got saved, right?');
-})
+});
