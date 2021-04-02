@@ -1,0 +1,41 @@
+body {
+	background-color: lavender;
+}
+
+main {
+	background-color: lightgreen;
+	text-align: center;
+	padding: 1rem;
+}
+
+section {
+	background-color: skyblue;
+	border: solid 4px indigo;
+	margin: 1rem;
+	padding: 1rem;
+}
+
+h2 {
+	background-color: tomato;
+}
+
+label {
+	background-color: aliceblue;
+}
+
+form {
+	background-color: teal;
+}
+
+p {
+	background-color: lightgray;
+}
+
+.result-wrapper {
+	border: solid 4px royalblue;
+	margin: 1rem;
+}
+
+.none {
+	display: none;
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./stylesheets/style.css">
+	<title>Thesaurus</title>
+</head>
+<body>
+	<main>
+		<aside>
+			<nav>
+				<a href="./collection.html">See Saved Words?</a>
+			</nav>
+		</aside>
+		<section id="word-search">
+			<h2>Search the Thesaurus</h2>
+			<form>
+				<input name="search-query" />
+				<button>Search</button>
+			</form>
+		</section>
+	
+		<section id="search-results" class="none">
+			<h2 id="user-word"></h2>
+	
+			<div class="result-wrapper">
+				<label for="syns">Synonyms</label>
+				<p id="syns"></p>
+			</div>
+			
+			<div class="result-wrapper">
+				<label for="ants">Antonyms</label>
+				<p id="ants"></p>
+			</div>
+			
+			<div class="result-wrapper">
+				<label for="def">Definition</label>
+				<p id="def"></p>
+			</div>
+			
+
+			<button id="save-button">Save this word?</button>
+		</section>
+	</main>
+	
+	<script type="module" src="./index.js"></script>
+</body>
+</html>
