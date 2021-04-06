@@ -10,9 +10,9 @@ module.exports = class WordService {
 		return wordEntry;
 	}
 
-	static async getAll() {
+	static async getAll(sortProperty? : WordProp, sortDirection? : 'asc' | 'desc') {
 		const words = await Word.select();
-		const sortedWords = this.sort(words);
+		const sortedWords = this.sort(words, sortProperty, sortDirection);
 		return sortedWords;
 	}
 
