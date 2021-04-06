@@ -1,30 +1,44 @@
 body {
-	background-color: lavender;
+	background-color: lightgray;
+	font-family: monospace;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: lightgray;
+}
+
+a:hover {
+	color: aliceblue;
+}
+
+a:active {
+	color: indigo;
 }
 
 main {
-	background-color: lightgreen;
+	background-color: teal;
+	border: solid 4px rgb(78, 78, 78);
 	text-align: center;
 	padding: 1rem;
 }
 
 section {
-	background-color: skyblue;
-	border: solid 4px indigo;
+	color: rgb(220, 220, 220);
+	background-color: rgb(78, 78, 78);
+	border: solid 4px dimgray;
 	margin: 1rem;
 	padding: 1rem;
 }
 
 h2 {
-	background-color: tomato;
 }
 
 label {
-	background-color: aliceblue;
 }
 
 form {
-	background-color: teal;
+	padding: 1rem;
 }
 
 p {

@@ -11,6 +11,8 @@ fetch('/api/v1/words', {
 	  res => {
 		for (let word of res) {
 			const entry = document.createElement('li');
+			entry.classList.add('word-entry');
+
 			const wordResult = document.createElement('h3');
 			wordResult.textContent = word.word;
 
@@ -25,6 +27,7 @@ fetch('/api/v1/words', {
 				})
 				.then(entry.remove());
 			});
+			
 			entry.append(wordResult);
 			entry.append(removeButton);
 			wordList.append(entry);
