@@ -5,7 +5,8 @@ const wordList = document.getElementById('word-list');
 fetch('/api/v1/words', {
 	headers: {
 	  'Content-Type': 'application/json',
-	}})
+	}
+})
   .then(res => res.json())
   .then(
 	  res => {
