@@ -102,65 +102,22 @@ describe('build-lab routes', () => {
 
 describe.skip('services', () => {
   it('sorts the database items if given sorting parameters', async () => {
-    const mockGetResponse = [
-      {
-          "id": "3",
-          "word": "celestial",
-          "synonyms": [
-              "elysian",
-              "empyreal",
-              "empyrean",
-              "ethereal",
-              "heavenly",
-              "supernal"
-          ],
-          "antonyms": [
-              "chthonic",
-              "hellish",
-              "infernal",
-              "plutonian",
-              "sulfurous",
-              "Tartarean"
-          ],
-          "definition": [
-              "of, relating to, or suggesting heaven"
-          ]
-      },
-      {
-          "id": "4",
-          "word": "hurry",
-          "synonyms": [
-              "haste",
-              "hastiness",
-              "hustle",
-              "precipitation",
-              "precipitousness",
-              "rush"
-          ],
-          "antonyms": [
-              "deliberateness",
-              "deliberation"
-          ],
-          "definition": [
-              "excited and often showy or disorderly speed",
-              "a high rate of movement or performance",
-              "a state of noisy, confused activity"
-          ]
-      },
-      {
-          "id": "6",
-          "word": "disguise",
-          "synonyms": [
-              "camouflage",
-              "costume",
-              "guise"
-          ],
-          "antonyms": null,
-          "definition": [
-              "clothing put on to hide one's true identity or imitate someone or something else",
-              "a display of emotion or behavior that is insincere or intended to deceive"
-          ]
-      }
-    ];
-  })
-})
+    await setup(pool);
+    const mockSeedWords = ['celestial', 'hurry', 'disguise'];
+    for (let word of mockSeedWords) {
+      await request(app)
+      .post('/api/v1/words')
+      .send({ word: `${ word }` });
+    };
+
+    const response = await request(app)
+      .get('/api/v1/words')
+      .send({sortProperty: 'word', sortDirection: 'desc'});
+
+    console.log(response.body);
+    expect(response.body.length).toEqual(3);
+    expect(response.body[0].word).toEqual('celestial');
+    expect(response.body[1].word).toEqual('disguise');
+    expect(response.body[2].word).toEqual('hurry');
+  });
+});
