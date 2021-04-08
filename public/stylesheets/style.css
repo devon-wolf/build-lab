@@ -1,0 +1,55 @@
+body {
+	background-color: lightgray;
+	font-family: monospace;
+}
+
+a:link, a:visited {
+	text-decoration: none;
+	color: lightgray;
+}
+
+a:hover {
+	color: aliceblue;
+}
+
+a:active {
+	color: indigo;
+}
+
+main {
+	background-color: teal;
+	border: solid 4px rgb(78, 78, 78);
+	text-align: center;
+	padding: 1rem;
+}
+
+section {
+	color: rgb(220, 220, 220);
+	background-color: rgb(78, 78, 78);
+	border: solid 4px dimgray;
+	margin: 1rem;
+	padding: 1rem;
+}
+
+h2 {
+}
+
+label {
+}
+
+form {
+	padding: 1rem;
+}
+
+p {
+	background-color: lightgray;
+}
+
+.result-wrapper {
+	border: solid 4px royalblue;
+	margin: 1rem;
+}
+
+.none {
+	display: none;
+}

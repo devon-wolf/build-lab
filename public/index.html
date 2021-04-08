@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./stylesheets/style.css">
+	<title>Thesaurus</title>
+</head>
+<body>
+	<main>
+		<aside>
+			<nav>
+				<a href="./collection.html">See Every Word You've Typed In?</a>
+			</nav>
+		</aside>
+		<section id="word-search">
+			<h2>Search the Thesaurus</h2>
+			<form>
+				<input name="search-query" />
+				<button>Search</button>
+			</form>
+		</section>
+	
+		<section id="search-results" class="none">
+			<h2 id="user-word"></h2>
+	
+			<label for="syns">Synonyms</label>
+			<ul id="syns" class="results-wrapper">
+			</ul>
+			
+			<label for="ants">Antonyms</label>
+			<ul id="ants" class="results-wrapper">
+			</ul>
+			
+			<label for="def">Definition</label>
+			<ul id="def" class="results-wrapper">
+			</ul>
+		</section>
+	</main>
+	
+	<script type="module" src="./index.js"></script>
+</body>
+</html>
